@@ -66,11 +66,17 @@ export function sortbylived() {
 // 6. Sort people alphabetically by last name
 export function sortByLastName() {
   return [...people].sort((a, b) => {
-    const [aLast] = a.split(', ');
-    const [bLast] = b.split(', ');
+    const [aLast, aFirst] = a.split(', ');
+    const [bLast, bFirst] = b.split(', ');
+
+    if (aLast === bLast) {
+      return aFirst.localeCompare(bFirst);
+    }
+
     return aLast.localeCompare(bLast);
   });
 }
+
 
 // 7. Reduce exercise: count instances
 const data = [
