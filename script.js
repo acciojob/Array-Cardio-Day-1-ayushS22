@@ -70,7 +70,8 @@ export function sortByLastName() {
     const [bLast, bFirst] = b.split(', ');
 
     if (aLast === bLast) {
-      return aFirst.localeCompare(bFirst);
+      // Descending order for first name
+      return bFirst.localeCompare(aFirst);
     }
 
     return aLast.localeCompare(bLast);
